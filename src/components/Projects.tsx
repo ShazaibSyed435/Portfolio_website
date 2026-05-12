@@ -227,7 +227,7 @@ export default function Projects() {
             </motion.p>
 
             <motion.a
-              href="https://github.com"
+              href={import.meta.env.VITE_GITHUB_URL}
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-teal-600 rounded-lg font-semibold relative z-20"
               whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)' }}
               whileTap={{ scale: 0.95 }}

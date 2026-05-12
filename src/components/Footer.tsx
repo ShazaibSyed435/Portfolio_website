@@ -67,15 +67,16 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants}>
+          {/* <motion.div variants={itemVariants}>
             <h4 className="text-white font-semibold mb-4">Resources</h4>
             <div className="space-y-2 text-sm">
               {[
-                { label: 'Download Resume', href: '/' },
-                { label: 'GitHub Profile', href: 'https://github.com' },
-                { label: 'LinkedIn Profile', href: 'https://linkedin.com' },
+                // download resume in public folder as resume.pdf
+                { label: 'Download Resume', href: '../public/Syed_Shazaib_Zaheer.pdf' },
+                { label: 'GitHub Profile', href: import.meta.env.VITE_GITHUB_URL },
+                { label: 'LinkedIn Profile', href: import.meta.env.VITE_LINKEDIN_URL },
               ].map((resource, index) => (
-                <motion.a
+                <motion.a 
                   key={index}
                   href={resource.href}
                   className="text-slate-400 hover:text-teal-300 transition-colors flex items-center gap-2 group"
@@ -86,15 +87,52 @@ export default function Footer() {
                 </motion.a>
               ))}
             </div>
-          </motion.div>
+          </motion.div> */}
+
+          <motion.div variants={itemVariants}>
+  <h4 className="text-white font-semibold mb-4">Resources</h4>
+
+  <div className="space-y-2 text-sm">
+    {[
+      {
+        label: 'Download Resume',
+        href: '/Syed_Shazaib_Zaheer.pdf',
+      },
+      {
+        label: 'GitHub Profile',
+        href: import.meta.env.VITE_GITHUB_URL,
+      },
+      {
+        label: 'LinkedIn Profile',
+        href: import.meta.env.VITE_LINKEDIN_URL,
+      },
+    ].map((resource, index) => (
+      <motion.a
+        key={index}
+        href={resource.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-slate-400 hover:text-teal-300 transition-colors flex items-center gap-2 group"
+        whileHover={{ x: 5 }}
+      >
+        {resource.label}
+
+        <ExternalLink
+          size={14}
+          className="opacity-0 group-hover:opacity-100 transition-opacity"
+        />
+      </motion.a>
+    ))}
+  </div>
+</motion.div> 
 
           <motion.div variants={itemVariants}>
             <h4 className="text-white font-semibold mb-4">Get in Touch</h4>
             <div className="flex gap-4">
               {[
-                { href: 'mailto:syedshazaib628@gmail.com', icon: Mail, label: 'Email' },
-                { href: 'https://github.com', icon: Github, label: 'GitHub' },
-                { href: 'https://linkedin.com', icon: Linkedin, label: 'LinkedIn' },
+                { href: `mailto:${import.meta.env.VITE_EMAIL}`, icon: Mail, label: 'Email', external: true },
+                { href: import.meta.env.VITE_GITHUB_URL, icon: Github, label: 'GitHub', external: true },
+                { href: import.meta.env.VITE_LINKEDIN_URL, icon: Linkedin, label: 'LinkedIn', external: true },
               ].map((social, index) => (
                 <motion.a
                   key={index}

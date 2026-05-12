@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Github, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface HeaderProps {
@@ -9,6 +9,12 @@ interface HeaderProps {
 export default function Header({ scrollY }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  // const githubUrl = import.meta.env.VITE_GITHUB_URL 
+  // console.log("GitHub URL from env:", githubUrl);
+
+  // const linkedinUrl = import.meta.env.VITE_LINKEDIN_URL 
+  // console.log("LinkedIn URL from env:", linkedinUrl);
 
   useEffect(() => {
     setIsScrolled(scrollY > 50);
@@ -24,11 +30,10 @@ export default function Header({ scrollY }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-slate-950/80 backdrop-blur-md border-b border-teal-500/20'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-slate-950/80 backdrop-blur-md border-b border-teal-500/20'
+        : 'bg-transparent'
+        }`}
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <motion.a
@@ -80,7 +85,9 @@ export default function Header({ scrollY }: HeaderProps) {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <motion.a
-            href="https://github.com"
+            href={import.meta.env.VITE_GITHUB_URL}
+            target='_blank'
+            rel="noopener noreferrer"
             className="text-slate-400 hover:text-teal-400 transition-colors"
             aria-label="GitHub"
             whileHover={{ scale: 1.2 }}
@@ -89,7 +96,9 @@ export default function Header({ scrollY }: HeaderProps) {
             <Github size={20} />
           </motion.a>
           <motion.a
-            href="https://linkedin.com"
+            href={import.meta.env.VITE_LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-slate-400 hover:text-teal-400 transition-colors"
             aria-label="LinkedIn"
             whileHover={{ scale: 1.2 }}
@@ -98,7 +107,8 @@ export default function Header({ scrollY }: HeaderProps) {
             <Linkedin size={20} />
           </motion.a>
           <motion.a
-            href="mailto:syedshazaib628@gmail.com"
+
+            href="#contact"
             className="px-6 py-2 bg-gradient-to-r from-teal-500 to-fuchsia-500 text-white rounded-lg hover:shadow-lg hover:shadow-teal-500/50 transition-all text-sm font-medium"
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(20, 184, 166, 0.4)' }}
             whileTap={{ scale: 0.95 }}
@@ -130,6 +140,8 @@ export default function Header({ scrollY }: HeaderProps) {
                 key={link.href}
                 href={link.href}
                 className="block text-slate-300 hover:text-teal-400 transition-colors"
+
+
                 onClick={() => setIsOpen(false)}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -145,13 +157,17 @@ export default function Header({ scrollY }: HeaderProps) {
               transition={{ delay: 0.3 }}
             >
               <a
-                href="https://github.com"
+                href={import.meta.env.VITE_GITHUB_URL}
+                target='_blank'
+                rel="noopener noreferrer"
                 className="text-slate-400 hover:text-teal-400 transition-colors"
               >
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href={import.meta.env.VITE_LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-slate-400 hover:text-teal-400 transition-colors"
               >
                 <Linkedin size={20} />

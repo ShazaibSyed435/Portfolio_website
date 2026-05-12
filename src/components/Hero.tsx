@@ -131,7 +131,10 @@ export default function Hero() {
           </motion.a>
 
           <motion.a
-            href="/"
+            // href="/"
+            href="/Syed_Shazaib_Zaheer.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-4 bg-slate-800/50 text-slate-200 rounded-lg border border-slate-700 hover:border-fuchsia-500/50 transition-all font-semibold backdrop-blur-sm"
             whileHover={{ scale: 1.05, backgroundColor: 'rgba(217, 70, 239, 0.1)' }}
             whileTap={{ scale: 0.95 }}
