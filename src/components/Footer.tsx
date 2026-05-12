@@ -165,7 +165,7 @@ export default function Footer() {
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-slate-400">
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -174,14 +174,14 @@ export default function Footer() {
             >
               &copy; {currentYear} Syed Shazaib Zaheer. All rights reserved.
             </motion.p>
-            <motion.p
+            {/* <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
               viewport={{ once: true }}
             >
               Crafted with <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-fuchsia-400 font-semibold">React</span> + <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-fuchsia-400 font-semibold">Framer Motion</span>
-            </motion.p>
+            </motion.p> */}
           </div>
         </motion.div>
       </div>
