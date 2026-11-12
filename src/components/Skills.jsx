@@ -1,16 +1,10 @@
+'use client';
+
 import { Code2, Server, Database, Cpu, Zap, Cloud } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-interface SkillCategory {
-  icon: React.ReactNode;
-  title: string;
-  skills: string[];
-  color: string;
-  gradient: string;
-}
-
 export default function Skills() {
-  const skillCategories: SkillCategory[] = [
+  const skillCategories = [
     {
       icon: <Code2 size={24} />,
       title: 'Frontend',
@@ -76,7 +70,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50 relative overflow-hidden">
+    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/10 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-16"

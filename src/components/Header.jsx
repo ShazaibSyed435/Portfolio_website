@@ -1,24 +1,27 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-interface HeaderProps {
-  scrollY: number;
-}
-
-export default function Header({ scrollY }: HeaderProps) {
+export default function Header({ links }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // const githubUrl = import.meta.env.VITE_GITHUB_URL 
-  // console.log("GitHub URL from env:", githubUrl);
-
-  // const linkedinUrl = import.meta.env.VITE_LINKEDIN_URL 
-  // console.log("LinkedIn URL from env:", linkedinUrl);
-
   useEffect(() => {
-    setIsScrolled(scrollY > 50);
-  }, [scrollY]);
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Restore direct section URLs after the App Router finishes mounting.
+    const initialHashFrame = window.requestAnimationFrame(() => {
+      const target = document.getElementById(window.location.hash.slice(1));
+      target?.scrollIntoView();
+    });
+    return () => {
+      window.cancelAnimationFrame(initialHashFrame);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const navLinks = [
     { href: '#about', label: 'About' },
@@ -85,7 +88,7 @@ export default function Header({ scrollY }: HeaderProps) {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <motion.a
-            href={import.meta.env.VITE_GITHUB_URL}
+            href={links.github}
             target='_blank'
             rel="noopener noreferrer"
             className="text-slate-400 hover:text-teal-400 transition-colors"
@@ -96,7 +99,7 @@ export default function Header({ scrollY }: HeaderProps) {
             <Github size={20} />
           </motion.a>
           <motion.a
-            href={import.meta.env.VITE_LINKEDIN_URL}
+            href={links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-400 hover:text-teal-400 transition-colors"
@@ -121,6 +124,8 @@ export default function Header({ scrollY }: HeaderProps) {
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden p-2 text-slate-300 hover:text-teal-400"
           aria-label="Toggle menu"
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
           whileTap={{ scale: 0.9 }}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -129,6 +134,7 @@ export default function Header({ scrollY }: HeaderProps) {
 
       {isOpen && (
         <motion.div
+          id="mobile-navigation"
           className="md:hidden bg-slate-900/95 backdrop-blur-md border-t border-teal-500/20"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -157,7 +163,7 @@ export default function Header({ scrollY }: HeaderProps) {
               transition={{ delay: 0.3 }}
             >
               <a
-                href={import.meta.env.VITE_GITHUB_URL}
+                href={links.github}
                 target='_blank'
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-teal-400 transition-colors"
@@ -165,7 +171,7 @@ export default function Header({ scrollY }: HeaderProps) {
                 <Github size={20} />
               </a>
               <a
-                href={import.meta.env.VITE_LINKEDIN_URL}
+                href={links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-400 hover:text-teal-400 transition-colors"

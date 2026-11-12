@@ -1,3 +1,5 @@
+'use client';
+
 import { ArrowRight, Download, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -22,27 +24,8 @@ export default function Hero() {
     },
   };
 
-  const floatingVariants = {
-    animate: {
-      y: [0, -20, 0],
-      transition: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
-    },
-  };
-
   return (
     <section className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center relative overflow-hidden">
-      {/* Animated orbs */}
-      <motion.div
-        className="absolute top-20 left-1/4 w-64 h-64 bg-teal-500/30 rounded-full blur-3xl -z-10"
-        animate={{ y: [0, 50, 0], x: [0, 50, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-1/4 w-64 h-64 bg-fuchsia-500/30 rounded-full blur-3xl -z-10"
-        animate={{ y: [0, -50, 0], x: [0, -50, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-      />
-
       <motion.div
         className="max-w-4xl mx-auto text-center"
         variants={containerVariants}

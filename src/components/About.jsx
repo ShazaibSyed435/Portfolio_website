@@ -1,3 +1,5 @@
+'use client';
+
 import { CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -32,7 +34,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50 relative overflow-hidden">
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/10 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-16"

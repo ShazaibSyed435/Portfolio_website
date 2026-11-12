@@ -1,17 +1,10 @@
+'use client';
+
 import { Github, ExternalLink, Zap, Users, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-interface Project {
-  title: string;
-  description: string;
-  impact: string;
-  tech: string[];
-  metrics: string;
-  icon: React.ReactNode;
-}
-
-export default function Projects() {
-  const projects: Project[] = [
+export default function Projects({ links }) {
+  const projects = [
     {
       title: 'SaaS Platform (MERN)',
       description: 'Built full production SaaS with multi-tenant architecture, JWT authentication, role-based access control, and comprehensive REST API layer.',
@@ -83,7 +76,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/50 relative overflow-hidden">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900/10 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -227,7 +220,7 @@ export default function Projects() {
             </motion.p>
 
             <motion.a
-              href={import.meta.env.VITE_GITHUB_URL}
+              href={links.github}
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-teal-600 rounded-lg font-semibold relative z-20"
               whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)' }}
               whileTap={{ scale: 0.95 }}

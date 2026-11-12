@@ -1,17 +1,10 @@
+'use client';
+
 import { Briefcase, Calendar, MapPin, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-interface JobExperience {
-  title: string;
-  company: string;
-  period: string;
-  location: string;
-  type: string;
-  achievements: string[];
-}
-
 export default function Experience() {
-  const experiences: JobExperience[] = [
+  const experiences = [
     {
       title: 'Full Stack Developer',
       company: 'Global Link Pvt Ltd',
@@ -64,7 +57,7 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950 relative overflow-hidden">
+    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-transparent relative overflow-hidden">
       <div className="max-w-4xl mx-auto">
         <motion.div
           className="text-center mb-16"
