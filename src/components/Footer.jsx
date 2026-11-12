@@ -1,7 +1,9 @@
+'use client';
+
 import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-export default function Footer() {
+export default function Footer({ links }) {
   const currentYear = new Date().getFullYear();
 
   const containerVariants = {
@@ -25,7 +27,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-950/80 backdrop-blur-md border-t border-slate-800 text-slate-300 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <footer className="bg-[#08090d]/70 backdrop-blur-md border-t border-slate-800 text-slate-300 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <motion.div
           className="grid md:grid-cols-4 gap-8 mb-12"
@@ -73,8 +75,8 @@ export default function Footer() {
               {[
                 // download resume in public folder as resume.pdf
                 { label: 'Download Resume', href: '../public/Syed_Shazaib_Zaheer.pdf' },
-                { label: 'GitHub Profile', href: import.meta.env.VITE_GITHUB_URL },
-                { label: 'LinkedIn Profile', href: import.meta.env.VITE_LINKEDIN_URL },
+                { label: 'GitHub Profile', href: links.github },
+                { label: 'LinkedIn Profile', href: links.linkedin },
               ].map((resource, index) => (
                 <motion.a 
                   key={index}
@@ -100,11 +102,11 @@ export default function Footer() {
       },
       {
         label: 'GitHub Profile',
-        href: import.meta.env.VITE_GITHUB_URL,
+        href: links.github,
       },
       {
         label: 'LinkedIn Profile',
-        href: import.meta.env.VITE_LINKEDIN_URL,
+        href: links.linkedin,
       },
     ].map((resource, index) => (
       <motion.a
@@ -130,9 +132,9 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Get in Touch</h4>
             <div className="flex gap-4">
               {[
-                { href: `mailto:${import.meta.env.VITE_EMAIL}`, icon: Mail, label: 'Email', external: true },
-                { href: import.meta.env.VITE_GITHUB_URL, icon: Github, label: 'GitHub', external: true },
-                { href: import.meta.env.VITE_LINKEDIN_URL, icon: Linkedin, label: 'LinkedIn', external: true },
+                { href: `mailto:${links.email}`, icon: Mail, label: 'Email', external: true },
+                { href: links.github, icon: Github, label: 'GitHub', external: true },
+                { href: links.linkedin, icon: Linkedin, label: 'LinkedIn', external: true },
               ].map((social, index) => (
                 <motion.a
                   key={index}

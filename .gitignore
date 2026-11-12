@@ -21,3 +21,11 @@ dist-ssr
 *.sln
 *.sw?
 
+
+# Next.js
+.next/
+out/
+# Local environment configuration
+.env
+.env.*
+!.env.example

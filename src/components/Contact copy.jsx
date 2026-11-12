@@ -1,17 +1,19 @@
+'use client';
+
 // import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send } from 'lucide-react';
 // import { useState } from 'react';
 // import { motion } from 'framer-motion';
 
-// export default function Contact() {
+// export default function Contact({ links }) {
 //   const [formState, setFormState] = useState({ name: '', email: '', subject: '', message: '' });
 //   const [submitted, setSubmitted] = useState(false);
 
-//   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+//   const handleChange = (e) => {
 //     const { name, value } = e.target;
 //     setFormState(prev => ({ ...prev, [name]: value }));
 //   };
 
-//   const handleSubmit = (e: React.FormEvent) => {
+//   const handleSubmit = (e) => {
 //     e.preventDefault();
 //     setSubmitted(true);
 //     setTimeout(() => setSubmitted(false), 3000);
@@ -180,7 +182,7 @@
 //                   type={field.type}
 //                   id={field.id}
 //                   name={field.id}
-//                   value={formState[field.id as keyof typeof formState]}
+//                   value={formState[field.id]}
 //                   onChange={handleChange}
 //                   className="w-full px-4 py-3 rounded-lg bg-slate-800/50 border border-slate-700/50 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all backdrop-blur-sm"
 //                   placeholder={field.placeholder}
@@ -249,7 +251,7 @@ export default function Contact() {
       icon: Mail,
       label: "Email",
       value: "syedshazaib628@gmail.com",
-      href: `mailto:${import.meta.env.VITE_EMAIL}`,
+      href: `mailto:${links.email}`,
     },
     {
       icon: Phone,

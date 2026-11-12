@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Mail,
   Phone,
@@ -7,7 +9,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-export default function Contact() {
+export default function Contact({ links }) {
   const contactItems = [
     {
       icon: Mail,
@@ -29,28 +31,22 @@ export default function Contact() {
     {
       icon: Github,
       label: "GitHub",
-      value: import.meta.env.VITE_GITHUB_URL.replace("https://", "").replace("www.", ""),
-      href: import.meta.env.VITE_GITHUB_URL,
+      value: links.github.replace("https://", "").replace("www.", ""),
+      href: links.github,
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: import.meta.env.VITE_LINKEDIN_URL.replace("https://", "").replace("www.", ""),
-      href: import.meta.env.VITE_LINKEDIN_URL,
+      value: links.linkedin.replace("https://", "").replace("www.", ""),
+      href: links.linkedin,
     },
   ];
 
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-slate-950 py-20 px-4 sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-transparent py-20 px-4 sm:px-6 lg:px-8"
     >
-      {/* Background Glow */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500/10 blur-[140px]" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-fuchsia-500/10 blur-[140px]" />
-      </div>
-
       <div className="relative max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

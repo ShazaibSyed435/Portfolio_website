@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Keep the existing UI palette over the shared charcoal atmosphere. */
+@layer base {
+  :root {
+    --color-primary: #0f766e;
+    --color-primary-light: #14b8a6;
+    --color-primary-dark: #0d5f5a;
+    --color-accent: #d946ef;
+    --color-accent-light: #ec4899;
+    --color-bg: #08090d;
+    --color-surface: #1e293b;
+    --color-surface-light: #334155;
+  }
+
+  body {
+    background: #08090d;
+    color: #e2e8f0;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #14b8a6 0%, #d946ef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
