@@ -6,10 +6,10 @@
 @layer base {
   :root {
     --color-primary: #0f766e;
-    --color-primary-light: #14b8a6;
     --color-primary-dark: #0d5f5a;
-    --color-accent: #d946ef;
+    --color-primary-light: #14b8a6;
     --color-accent-light: #ec4899;
+    --color-accent: #d946ef;
     --color-bg: #08090d;
     --color-surface: #1e293b;
     --color-surface-light: #334155;
